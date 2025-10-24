@@ -11,7 +11,7 @@ GET {{baseUrl}}/tasks
 
 
 ### Find One Task
-GET {{baseUrl}}/tasks/123
+GET {{baseUrl}}/tasks/d5f6acd4-14ba-456f-9134-89186f8b5a78
 
 
 ### Create a Task
@@ -33,3 +33,14 @@ Content-Type: {{contentType}}
   "description": "Complete the NestJs Course",
   "status": "XXX"
 }
+
+### Update a task status
+PATCH {{baseUrl}}/tasks/ef02dd2a-3bc0-4c67-82c8-8692d48d98b4/status
+Content-Type: {{contentType}}
+
+{
+  "status": "IN_PROGRESS"
+}
+
+### Delete a Task
+DELETE {{baseUrl}}/tasks/576559bf-089b-474a-a2db-deb062e14587

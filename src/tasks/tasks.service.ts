@@ -7,15 +7,15 @@ import { randomUUID } from 'crypto';
 export class TasksService {
   private tasks: Task[] = [];
 
-  findAll(): Task[] {
+  public findAll(): Task[] {
     return this.tasks;
   }
 
-  findOne(id: string): Task | undefined {
+  public findOne(id: string): Task | undefined {
     return this.tasks.find((task) => task.id === id);
   }
 
-  create(taskDto: CreateTaskDto): Task {
+  public create(taskDto: CreateTaskDto): Task {
     const task: Task = {
       id: randomUUID(),
       ...taskDto,
@@ -23,5 +23,9 @@ export class TasksService {
 
     this.tasks.push(task);
     return task;
+  }
+
+  public deleteTask(id: string): void {
+    this.tasks = this.tasks.filter((task) => task.id != id);
   }
 }
